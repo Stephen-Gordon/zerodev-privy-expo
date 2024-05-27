@@ -7,7 +7,7 @@ import { useLoginWithEmail, useLoginWithOAuth, usePrivy} from '@privy-io/expo';
 // React
 import { useEffect, useState } from 'react';
 // Expo
-import { router } from 'expo-router';
+import { Link, router } from 'expo-router';
 
 
 export default function Login() {
@@ -74,9 +74,10 @@ export default function Login() {
           !isCodeSent ? (
             <YStack mt="$4" gap="$2">
               
-              <Input  width={'$19'} value={email} onChangeText={setEmail} placeholder="Email" inputMode="email" />
+              <Input themeInverse width={'$19'} value={email} onChangeText={setEmail} placeholder="Email" inputMode="email" />
               
               <Button 
+                themeInverse
                 onPress={() => {
                 sendCode({email})
               }}>Send Code</Button>
@@ -98,7 +99,7 @@ export default function Login() {
         }
         
         <YStack mt="$4" gap="$2">
-          <Button color={"$blue10"} w="$19" onPress={() => login({provider: 'google'})}>Login with Google</Button>
+          <Button themeInverse color={"$blue10"} w="$19" onPress={() => login({provider: 'google'})}>Login with Google</Button>
         </YStack>
    
     </View>

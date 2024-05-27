@@ -5,7 +5,7 @@ import {PrivyProvider} from '@privy-io/expo';
 
 import { SplashScreen, Stack } from 'expo-router'
 import { useColorScheme } from 'react-native'
-import { TamaguiProvider, Theme } from 'tamagui'
+import { TamaguiProvider } from 'tamagui'
 
 //import '../tamagui-web.css'
 
@@ -53,18 +53,22 @@ function RootLayoutNav() {
   return (
     <PrivyProvider appId={process.env.EXPO_PUBLIC_PRIVY_ID as string}>
       <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
-      <Theme inverse name={"dark"}>
-        <Stack>
-          {/* Privy Login Screen */}
-          <Stack.Screen name="login" options={{}} />
 
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> 
-          
+        
 
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        </Stack>
-      </Theme>
-    </TamaguiProvider>
+          <Stack>
+            
+            {/* Privy Login Screen */}
+            <Stack.Screen name="login" options={{}} />
+
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> 
+            
+
+            {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}
+          </Stack>
+
+
+      </TamaguiProvider>
     </PrivyProvider>
 
     

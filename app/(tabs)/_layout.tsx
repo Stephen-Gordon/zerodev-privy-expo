@@ -1,11 +1,12 @@
+import { ToastProvider } from '@tamagui/toast'
 import '../../polyfills'
-import { Link, Tabs } from 'expo-router'
-import { Pressable } from 'react-native'
-import { Text } from 'tamagui'
+import { Tabs } from 'expo-router'
+
 
 export default function TabLayout() {
   return (
-    <Tabs
+    <ToastProvider>
+      <Tabs
       screenOptions={{
         tabBarActiveTintColor: 'red',
       }}
@@ -13,24 +14,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <Text>Hello!</Text>,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                <Text>Hello!</Text>
-              </Pressable>
-            </Link>
-          ),
+          title: 'ZeroDev x Privy',
         }}
       />
       <Tabs.Screen
         name="two"
-        options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <Text>Hello!</Text>,
-        }}
       />
     </Tabs>
+    </ToastProvider>
+    
   )
 }
